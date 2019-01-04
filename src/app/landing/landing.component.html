@@ -1,0 +1,32 @@
+<div class="card">
+  <div class="card-body">
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <div class="form-group">
+      <label for="title">title</label>
+      <input
+        class="form-control"
+        type="text"
+        name="title"
+        ngModel
+        required
+        minlength="3"
+        placeholder="Post Title"
+        #title="ngModel"/>
+    </div>
+    <div>
+      <label for="description">Description</label>
+        <textarea
+          class="form-control"
+          rows="1"
+          name="description"
+          ngModel
+          required
+          placeholder="description"
+          #description="ngModel"></textarea>
+      </div>
+      <br/>
+      <button
+        type="submit" class="btn btn-primary">Save Post</button>
+    </form>
+  </div>
+</div>
