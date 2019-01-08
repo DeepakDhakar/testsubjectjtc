@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Post } from '../models/post.model';
-import { Subject } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 
@@ -10,7 +9,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class LandingService {
 
   private posts: Post[] = [];
-  private postsUpdated = new Subject<Post[]>();
+  
 
   constructor(private db: AngularFirestore) { }
 

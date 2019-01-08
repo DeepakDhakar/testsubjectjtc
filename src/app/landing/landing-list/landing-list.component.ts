@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, NgZone} from "@angular/core";
+import { Component, OnInit} from "@angular/core";
 
 import { Post } from "../../models/post.model";
 import { LandingService } from '../landing.service';
@@ -12,7 +12,7 @@ export class LandingListComponent implements OnInit {
 
   posts: Post[] = [];
 
-  constructor(public landingService: LandingService,private zone : NgZone) { }
+  constructor(public landingService: LandingService) { }
 
   ngOnInit() {
     this.getPostLists();
@@ -20,14 +20,15 @@ export class LandingListComponent implements OnInit {
   
   getPostLists() {
     this.landingService.getPosts().then((response:any)=>{
-      // this.posts = response;
+    
       console.log(response);
-        this.posts = response.map(e => 
+        this.posts = response.map((e:any) => 
           {
               return {
                 postId:e.payload.doc.id,
                 ...e.payload.doc.data()
               } as Post;
+             
           })
         });
   }
